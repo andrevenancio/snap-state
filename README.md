@@ -50,7 +50,7 @@ export function SomeButton() {
 }
 ```
 
-3) All we need is to complete that SomePage and decorate it with a Consumer specifying the prop we want to subscribe to change
+3) All we need is to complete that SomePage and decorate it with a Consumer specifying the prop we want to subscribe to changes
 ```javascript
 import { h, Component } from 'preact';
 import { withConsumer } from 'jsx-simple-state';
