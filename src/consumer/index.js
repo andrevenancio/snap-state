@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 
 import { State } from '../state';
 import { emitter } from '../emitter';
