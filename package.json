@@ -1,6 +1,6 @@
 {
   "name": "jsx-simple-state",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "description": "simple state management for jsx",
   "main": "dist/jsxss.js",
@@ -9,12 +9,12 @@
   "source": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle build --jsx createElement",
+    "build": "microbundle build --raw",
     "dev": "microbundle watch --raw --format cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react",
+    "preact",
     "simple",
     "state",
     "management"
@@ -31,10 +31,12 @@
   },
   "homepage": "https://github.com/andrevenancio/jsx-simple-state#readme",
   "dependencies": {
-    "events": "^3.0.0",
-    "react": "^16.8.6"
+    "events": "^3.0.0"
   },
   "devDependencies": {
     "microbundle": "^0.11.0"
+  },
+  "peerDependencies": {
+    "preact": "^8.5.0"
   }
 }

@@ -1,10 +1,10 @@
-import { React, PureComponent } from 'react';
+import { h, Component } from 'preact';
 
 import { State } from '../state';
 import { emitter } from '../emitter';
 
 const withConsumer = props => (WrappedComponent) => {
-    class Consumer extends PureComponent {
+    class Consumer extends Component {
         state = {};
 
         componentDidMount() {
