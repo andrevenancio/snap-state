@@ -1,5 +1,5 @@
 # jsx-simple-state
-State management (hopefully) make simple.
+State management (hopefully) made simple.
 
 ## Motivation
 You probably don't always need to use Redux or React Context API and wrapping your Consumer inside your Provider, or is it the other way around? 🤷‍♂️
