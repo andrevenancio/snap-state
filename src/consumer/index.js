@@ -1,0 +1,42 @@
+import { React, PureComponent } from 'react';
+
+import { State } from '../state';
+import { emitter } from '../emitter';
+
+const withConsumer = props => (WrappedComponent) => {
+    class Consumer extends PureComponent {
+        state = {};
+
+        componentDidMount() {
+            if (props && Array.isArray(props)) {
+                for (let i = 0; i < props.length; i++) {
+                    emitter.on(props[i], this.handleStateChange);
+                }
+            }
+        }
+
+        componentWillUnmount() {
+            if (props && Array.isArray(props)) {
+                for (let i = 0; i < props.length; i++) {
+                    emitter.off(props[i], this.handleStateChange);
+                }
+            }
+        }
+
+        handleStateChange = ({ key, value }) => {
+            this.setState({
+                [key]: value,
+            });
+        }
+
+        render() {
+            return (
+                <WrappedComponent {...this.props} {...this.state} />
+            );
+        }
+    }
+
+    return Consumer;
+};
+
+export { withConsumer };
