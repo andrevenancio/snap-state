@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/andrevenancio/jsx-simple-state#readme",
   "dependencies": {
-    "events": "^3.0.0",
+    "events": "^3.0.0"
   },
   "devDependencies": {
     "microbundle": "^0.11.0"
