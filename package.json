@@ -13,7 +13,7 @@
     "dev": "microbundle watch --raw --format cjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "version": "npm run build",
-    "postversion": "git push && git push --tags",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "react",
