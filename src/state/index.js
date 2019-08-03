@@ -9,7 +9,14 @@ export const State = new Proxy({}, {
         return Reflect.get(target, name, receiver);
     },
     set(target, name, value, receiver) {
-        emitter.emit(name, { key: name, value });
+        const cur = Reflect.get(target, name, receiver);
+        if (cur !== undefined) {
+            if (cur !== value) {
+                emitter.emit(name, { key: name, value });
+            }
+        } else {
+            emitter.emit(name, { key: name, value });
+        }
         return Reflect.set(target, name, value, receiver);
     },
 });

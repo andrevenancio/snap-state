@@ -5,7 +5,24 @@ import { emitter } from '../emitter';
 
 const withConsumer = props => (WrappedComponent) => {
     class Consumer extends Component {
-        state = {};
+
+        constructor(p) {
+            super(p);
+
+            // loops through props and cross reference with current State
+            // and adds any matching values
+            const state = Object.assign({}, State);
+            const matching = {};
+            props.forEach((prop) => {
+                if (state[prop]) {
+                    matching[prop] = state[prop];
+                }
+            });
+
+            this.state = {
+                ...matching,
+            }
+        }
 
         componentDidMount() {
             if (props && Array.isArray(props)) {
