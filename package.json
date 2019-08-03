@@ -1,6 +1,6 @@
 {
   "name": "simple-state",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "private": false,
   "description": "simple state management",
   "main": "dist/simple-state.js",
