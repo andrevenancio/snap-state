@@ -17,53 +17,54 @@ For example, lets say we want to create a property that stores a "theme", how do
 
 1) Create your initial state
 ```javascript
-import { h, render } from 'preact';
-import { State } from "jsx-simple-state";
-import SomeButton from './button';
+import React from 'react';
+import { State } from '/jsx-simple-state';
+
+import { SomeButton } from './button';
 import SomePage from './page';
 
-// define a prop for a "theme"
 State.theme = 'dark';
 
 function App() {
-  return (
-    <div>
-      <h1>Howdy</h1>
-      <SomeButton />
-      <SomePage />
-    </div>
-  );
+    return (
+        <>
+            <h1>🤯</h1>
+            <SomeButton />
+            <SomePage />
+        </>
+    );
 }
 
-render(<App />, document.querySelector('body'), document.querySelector('#app'));
+export default App;
 ```
 
 2) Lets fill that SomeButton class shall we?
 ```javascript
-import { h } from 'preact';
+import React from 'react';
 import { State } from 'jsx-simple-state';
 
 export function SomeButton() {
-  return (
-    <button onPointerDown={() => { State.theme = 'light'; }}>Light Theme</button>
-  );
+    return (
+        <button onPointerDown={() => { State.theme = 'light'; }}>Light Theme</button>
+    );
 }
 ```
 
 3) All we need is to complete that SomePage and decorate it with a Consumer specifying the prop we want to subscribe to changes
 ```javascript
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 import { withConsumer } from 'jsx-simple-state';
 
 class SomePage extends Component {
-  render() {
-    return (
-      <p>The selected theme is {this.props.theme}</p>
-    );
-  }
+    render() {
+        return (
+            <p>The selected theme is {this.props.theme}</p>
+        );
+    }
 }
 
 export default withConsumer(['theme'])(SomePage);
+
 ```
 
 And thats it!
