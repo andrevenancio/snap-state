@@ -1,6 +1,6 @@
 {
   "name": "jsx-simple-state",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "simple state management for jsx",
   "main": "dist/jsxss.js",
