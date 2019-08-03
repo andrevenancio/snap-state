@@ -38,7 +38,7 @@ function App() {
 export default App;
 ```
 
-2) Lets fill that SomeButton class shall we?
+2) Lets fill that SomeButton component shall we?
 ```javascript
 import React from 'react';
 import { State } from 'jsx-simple-state';
