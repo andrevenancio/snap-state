@@ -1,15 +1,15 @@
 import React from 'react';
-import { useSimpleState } from '../hook';
+import { useSnapState } from '../hook';
 
-const withSimpleState = props => (WrappedComponent) => {
-    function SimpleStateHOC() {
-        const wrappedState = useSimpleState(props);
+const withSnapState = props => (WrappedComponent) => {
+    function SnapStateHOC() {
+        const wrappedState = useSnapState(props);
         return (
             <WrappedComponent {...wrappedState} />
         );
     }
 
-    return SimpleStateHOC;
+    return SnapStateHOC;
 };
 
-export { withSimpleState };
+export { withSnapState };

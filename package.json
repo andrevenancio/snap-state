@@ -1,11 +1,11 @@
 {
-  "name": "simple-state",
+  "name": "snap-state",
   "version": "1.0.0",
   "private": false,
-  "description": "simple state management",
-  "main": "dist/simple-state.js",
-  "module": "dist/simple-state.module.js",
-  "umd:main": "dist/simple-state.umd.js",
+  "description": "state management in a snap 👌",
+  "main": "dist/snap-state.js",
+  "module": "dist/snap-state.module.js",
+  "umd:main": "dist/snap-state.umd.js",
   "source": "src/index.js",
   "license": "MIT",
   "scripts": {
@@ -21,7 +21,7 @@
     "hooks",
     "hook",
     "hoc",
-    "simple",
+    "snap",
     "state",
     "management"
   ],
@@ -30,12 +30,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrevenancio/simple-state.git"
+    "url": "git+https://github.com/andrevenancio/snap-state.git"
   },
   "bugs": {
-    "url": "https://github.com/andrevenancio/simple-state/issues"
+    "url": "https://github.com/andrevenancio/snap-state/issues"
   },
-  "homepage": "https://github.com/andrevenancio/simple-state#readme",
+  "homepage": "https://github.com/andrevenancio/snap-state#readme",
   "dependencies": {
     "events": "^3.0.0"
   },
