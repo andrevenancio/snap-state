@@ -62,7 +62,7 @@ export default withSnapState(['theme'])(Example);
 ## Vanilla
 What if you're building a custom WebGL application that makes a cat fly through space? What if you want to store all the planets your Space Cat visits, do you still need React? Not really no.
 
-```
+```javascript
 import { State, onSnapState } from 'snap-state';
 
 // subscribe to changes on the "planet" prop
