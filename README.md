@@ -13,7 +13,7 @@ This library was done with React and Preact in mind, but if you're using your ow
 You can create your state somewhere (well, maybe at the application level to look profesh)!
 Once that's out of the way, you can change it from anywhere in your app regardless of component hierarchy. 🎉🎉🎉
 
-Now every time the state changes, any component subscribing to the changes will get be updated.
+Now every time the state changes, any component subscribing to changes will be updated.
 
 For example, lets say we want to create a property that stores a "theme", how does that look? Well, just create your initial state:
 
