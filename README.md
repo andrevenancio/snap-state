@@ -71,9 +71,7 @@ const unsubscribe = onSnapState(['planet'], ({ value }) => {
 });
 
 // change your state and look at that amazing callback.
-setTimeout(() => {
-    State.planet = 'mars';
-}, 500);
+State.planet = 'mars';
 
 // when your cat reaches another galaxy and you feel its time to let it go
 // you can unsubscribe from further changes
