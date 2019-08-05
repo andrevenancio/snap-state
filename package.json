@@ -1,6 +1,6 @@
 {
   "name": "snap-state",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "state management in a snap 👌",
   "main": "dist/snap-state.js",
@@ -37,10 +37,12 @@
   },
   "homepage": "https://github.com/andrevenancio/snap-state#readme",
   "dependencies": {
-    "events": "^3.0.0",
-    "react": ">=16.8.0"
+    "events": "^3.0.0"
   },
   "devDependencies": {
     "microbundle": "^0.11.0"
+  },
+  "peerDependencies": {
+      "react": ">=16.8.0"
   }
 }
