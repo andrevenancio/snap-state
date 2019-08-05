@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { emitter } from '../emitter';
 import { State } from '../state';
 
-export function useSnapState(props) {
+export function useSnapState(props = []) {
     const current = Object.assign({}, State);
     const matching = {};
     props.forEach((prop) => {
