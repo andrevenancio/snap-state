@@ -1,0 +1,28 @@
+{
+	"name": "preact8",
+	"amdName": "preact8",
+	"version": "1.1.0",
+	"private": true,
+	"description": "Preact8 addon for snap-state",
+	"main": "dist/preact8.js",
+	"module": "dist/preact8.module.js",
+	"umd:main": "dist/preact8.umd.js",
+	"source": "src/index.js",
+	"license": "MIT",
+	"scripts": {
+		"build": "microbundle build --raw",
+		"dev": "microbundle watch --raw --format cjs"
+	},
+	"peerDependencies": {
+		"preact": "^8.5.1"
+	},
+	"mangle": {
+		"regex": "^_"
+	},
+	"dependencies": {
+		"events": "^3.0.0"
+	},
+	"devDependencies": {
+		"microbundle": "^0.11.0"
+	}
+}
