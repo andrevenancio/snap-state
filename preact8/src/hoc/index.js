@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, Component } from 'preact';
 import { onSnapState } from '../../../src/vanilla';
 
 const withSnapState = props => WrappedComponent => {
