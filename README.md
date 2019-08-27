@@ -59,7 +59,7 @@ class Example extends Component {
 export default withSnapState(['theme'])(Example);
 ```
 
-## Vanilla
+### Vanilla
 What if you're building a custom WebGL application that makes a cat fly through space? What if you want to store all the planets your Space Cat visits, do you still need React? Not really no.
 
 ```javascript
@@ -77,3 +77,24 @@ State.planet = 'mars';
 // you can unsubscribe from further changes
 unsubscribe();
 ```
+
+## Preact (addon)
+Currently Preact 8x doesn't support hooks, but Preact X does. You can either update your application to Preact X or you can use the `preact8` addon like to:
+
+```javascript
+import { h, Component } from 'preact';
+import { withSnapState } from 'snap-state/preact8';
+
+class Example extends Component {
+    render() {
+        return (
+            <p>the theme is {this.props.theme}</p>
+        );
+    }
+}
+
+export default withSnapState(['theme'])(Example);
+```
+
+Please note that all exports on `snap-state/preact8` are the same as `snap-state` except they do not contain the `useSnapState` hook.
+Once the Preact team updates Preact, this addon is going to be removed.
