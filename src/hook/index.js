@@ -6,13 +6,13 @@ import { State } from '../state';
 export function useSnapState(props = []) {
     const current = Object.assign({}, State);
     const matching = {};
-    props.forEach((prop) => {
+    props.forEach(prop => {
         if (current[prop]) {
             matching[prop] = current[prop];
         }
     });
 
-    const [state, setState] = useState({...matching});
+    const [state, setState] = useState({ ...matching });
 
     function handleStateChange({ key, value }) {
         setState({
@@ -33,7 +33,7 @@ export function useSnapState(props = []) {
                     emitter.off(props[i], handleStateChange);
                 }
             }
-        }
+        };
     });
 
     return state;
