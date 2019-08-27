@@ -1,49 +1,49 @@
 {
-	"name": "snap-state",
-	"version": "1.1.1",
-	"private": false,
-	"description": "state management in a snap 👌",
-	"main": "dist/snap-state.js",
-	"module": "dist/snap-state.module.js",
-	"umd:main": "dist/snap-state.umd.js",
-	"source": "src/index.js",
-	"license": "MIT",
-	"scripts": {
-		"build": "microbundle build --raw --jsx React.createElement",
-		"build:preact8": "microbundle build --raw --cwd preact8",
-		"dev": "microbundle watch --raw --format cjs",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"version": "npm run build&&npm run build:preact8",
-		"postversion": "git push && git push --tags"
-	},
-	"keywords": [
-		"react",
-		"preact",
-		"hooks",
-		"hook",
-		"hoc",
-		"snap",
-		"state",
-		"management"
-	],
-	"authors": [
-		"Andre Venancio <info@andrevenancio.com>"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/andrevenancio/snap-state.git"
-	},
-	"bugs": {
-		"url": "https://github.com/andrevenancio/snap-state/issues"
-	},
-	"homepage": "https://github.com/andrevenancio/snap-state#readme",
-	"dependencies": {
-		"events": "^3.0.0"
-	},
-	"devDependencies": {
-		"microbundle": "^0.11.0"
-	},
-	"peerDependencies": {
-		"react": ">=16.8.0"
-	}
+    "name": "snap-state",
+    "version": "1.1.2",
+    "private": false,
+    "description": "state management in a snap 👌",
+    "main": "dist/snap-state.js",
+    "module": "dist/snap-state.module.js",
+    "umd:main": "dist/snap-state.umd.js",
+    "source": "src/index.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "microbundle build --raw --jsx React.createElement",
+        "build:preact8": "microbundle build --raw --cwd preact8",
+        "dev": "microbundle watch --raw --format cjs",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "version": "npm run build&&npm run build:preact8",
+        "postversion": "git push && git push --tags"
+    },
+    "keywords": [
+        "react",
+        "preact",
+        "hooks",
+        "hook",
+        "hoc",
+        "snap",
+        "state",
+        "management"
+    ],
+    "authors": [
+        "Andre Venancio <info@andrevenancio.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andrevenancio/snap-state.git"
+    },
+    "bugs": {
+        "url": "https://github.com/andrevenancio/snap-state/issues"
+    },
+    "homepage": "https://github.com/andrevenancio/snap-state#readme",
+    "dependencies": {
+        "events": "^3.0.0"
+    },
+    "devDependencies": {
+        "microbundle": "^0.11.0"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0"
+    }
 }
