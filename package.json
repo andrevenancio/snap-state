@@ -1,6 +1,6 @@
 {
     "name": "snap-state",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "private": false,
     "description": "state management in a snap 👌",
     "main": "dist/snap-state.js",
@@ -10,10 +10,9 @@
     "license": "MIT",
     "scripts": {
         "build": "microbundle build --raw --jsx React.createElement",
-        "build:preact8": "microbundle build --raw --cwd preact8",
         "dev": "microbundle watch --raw --format cjs",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "version": "npm run build&&npm run build:preact8",
+        "version": "npm run build",
         "postversion": "git push && git push --tags"
     },
     "keywords": [

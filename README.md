@@ -7,7 +7,62 @@ You probably don't always need to use Redux or React Context API and wrapping yo
 For simpler applications you might just want a K.I.S.S. approach 🤔(did he just called me stupid?)
 
 ## How does it work?
-This library was done with React and Preact in mind, but if you're using your own thing good on you. I got you fam!
+This library was done with React and Preact in mind, but if you're using your own thing good on you. I got you fam! Snap state is a little bit like a singleton with event dispatching. Everytime you set or change a property on the state, components listening to those events will be notified of changes.
+
+So in the simplest form you can have
+
+```javascript
+// 1) import the state
+import { State } from 'snap-state';
+
+// 2) define a property
+State.test = 123;
+```
+
+This property `State.test` will now be available from anywhere in your application. You just need to import the `State` class. For example:
+
+```javascript
+import { State } from 'snap-state';
+console.log(State.test); // returns 123;
+```
+
+If you want to do anything every time the prop `State.test` changes, you can do something like:
+
+```javascript
+import { State, onSnapState } from 'snap-state';
+
+onSnapState(['test'], ({ key, value }) => {
+    console.log('prop of key', key, 'changed to', value);
+});
+
+// change value of test to a random number.
+State.test = Math.random();
+
+// change value of test to a string
+State.test = 'abc';
+
+// change value of test to null
+State.test = null;
+```
+The `onSnapState` method receives an array of props so you can listen to changes on multiple properties at the same time. It also returns a unsubscribe method that you should use when you want to unsubscribe from future events. The full example below:
+
+```javascript
+import { State, onSnapState } from 'snap-state';
+
+const unsubscribe = onSnapState(['test'], ({ key, value }) => {
+    console.log('prop of key', key, 'changed to', value);
+});
+
+// change value of test to a random number
+State.test = Math.random();
+
+// stops the subscription to prop changes
+unsubscribe();
+
+// changing the prop now will work as expected, but the `onSnapState` callback isn't called because we unsubscribe from it.
+State.test = 'abc';
+State.test = null;
+```
 
 ## React
 You can create your state somewhere (well, maybe at the application level to look profesh)!
@@ -32,9 +87,9 @@ I know you're fancy, so if functional programming is your thing, check out the `
 import { useSnapState } from 'snap-state';
 
 function Example() {
-    const props = useSnapState(['theme']);
+    const state = useSnapState(['theme']);
     return (
-        <p>the theme is {props.theme}</p>
+        <p>the theme is {state.theme}</p>
     );
 }
 ```
@@ -60,7 +115,7 @@ export default withSnapState(['theme'])(Example);
 ```
 
 ### Vanilla
-What if you're building a custom WebGL application that makes a cat fly through space? What if you want to store all the planets your Space Cat visits, do you still need React? Not really no.
+What if you're building a custom WebGL application that makes a cat fly through space? What if you want to store all the planets your Space Cat visits?
 
 ```javascript
 import { State, onSnapState } from 'snap-state';
@@ -77,24 +132,3 @@ State.planet = 'mars';
 // you can unsubscribe from further changes
 unsubscribe();
 ```
-
-## Preact (addon)
-Currently Preact 8x doesn't support hooks, but Preact X does. You can either update your application to Preact X or you can use the `preact8` addon like to:
-
-```javascript
-import { h, Component } from 'preact';
-import { withSnapState } from 'snap-state/preact8';
-
-class Example extends Component {
-    render() {
-        return (
-            <p>the theme is {this.props.theme}</p>
-        );
-    }
-}
-
-export default withSnapState(['theme'])(Example);
-```
-
-Please note that all exports on `snap-state/preact8` are the same as `snap-state` except they do not contain the `useSnapState` hook.
-Once the Preact team updates Preact, this addon is going to be removed.

@@ -1,10 +1,27 @@
-import React from 'react';
-import { useSnapState } from '../hook';
+import React, { Component } from 'react';
+import { onSnapState } from '../vanilla';
 
 const withSnapState = props => WrappedComponent => {
-    function SnapStateHOC() {
-        const wrappedState = useSnapState(props);
-        return <WrappedComponent {...wrappedState} />;
+    class SnapStateHOC extends Component {
+        state = {};
+
+        componentDidMount() {
+            this.unsubscribe = onSnapState(props, this.handleSnapStateChange);
+        }
+
+        componentWillUnmount() {
+            this.unsubscribe();
+        }
+
+        handleSnapStateChange = ({ key, value }) => {
+            this.setState({
+                [key]: value,
+            });
+        };
+
+        render() {
+            return <WrappedComponent {...this.state} />;
+        }
     }
 
     return SnapStateHOC;
