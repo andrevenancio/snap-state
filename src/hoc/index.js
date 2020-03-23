@@ -20,7 +20,7 @@ const withSnapState = props => WrappedComponent => {
         };
 
         render() {
-            return <WrappedComponent {...props} {...this.state} />;
+            return <WrappedComponent {...this.props} {...this.state} />;
         }
     }
 
