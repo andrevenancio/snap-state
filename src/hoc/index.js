@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { onSnapState } from '../vanilla';
 
-const withSnapState = props => WrappedComponent => {
+const withSnapState = (props) => (WrappedComponent) => {
     class SnapStateHOC extends Component {
         state = {};
 
@@ -14,9 +14,11 @@ const withSnapState = props => WrappedComponent => {
         }
 
         handleSnapStateChange = ({ key, value }) => {
-            this.setState({
-                [key]: value,
-            });
+            this.setState(
+                Object.assign(props, {
+                    [key]: value,
+                })
+            );
         };
 
         render() {

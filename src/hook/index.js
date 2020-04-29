@@ -7,16 +7,18 @@ export function useSnapState(props = []) {
     const current = Object.assign({}, State);
 
     const matching = {};
-    props.forEach(prop => {
+    props.forEach((prop) => {
         matching[prop] = current[prop];
     });
 
     const [state, setState] = useState({ ...matching });
 
     function handleStateChange({ key, value }) {
-        setState({
-            [key]: value,
-        });
+        setState(
+            Object.assign(matching, {
+                [key]: value,
+            })
+        );
     }
 
     useEffect(() => {
